@@ -2,10 +2,10 @@ const initState = {
     popular : [],
     newGames : [],
     upcoming : [],
-    searched : []
-}
+    searched : [],
+};
 
-const gamesReducer = (state={initState}, action) => {
+const gamesReducer = (state= initState, action) => {
     switch (action.type) {
         case 'FETCH_GAMES':
             return {
