@@ -32,7 +32,7 @@ const Home = () => {
                         name={game.name} 
                         released={game.released} 
                         image={game.background_image} 
-                        id={game.name} 
+                        id={game.id} 
                         key={game.id} 
                     />
                 ))}
@@ -44,7 +44,7 @@ const Home = () => {
                         name={game.name} 
                         released={game.released} 
                         image={game.background_image} 
-                        id={game.name} 
+                        id={game.id} 
                         key={game.id} 
                     />
                 ))}
@@ -56,7 +56,7 @@ const Home = () => {
                         name={game.name} 
                         released={game.released} 
                         image={game.background_image} 
-                        id={game.name} 
+                        id={game.id} 
                         key={game.id} 
                     />
                 ))}
