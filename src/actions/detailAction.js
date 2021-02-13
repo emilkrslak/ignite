@@ -3,9 +3,13 @@ import {gameDetailsURL, gameScreenshotURL} from '../api';
 
 //Action creator
 export const loadDetail = (id) => async (dispatch) => {
+    dispatch({
+        type: 'LOADING_DETAIL',
+    });
     //Fetch game detail
     const detailGameData = await axios.get(gameDetailsURL(id));
     const gameScreenshotData = await axios.get(gameScreenshotURL(id));
+
     dispatch({
         type: 'GET_DETAIL',
         payload: {
