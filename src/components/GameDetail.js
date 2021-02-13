@@ -1,6 +1,7 @@
 //Styling and Animaiton
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
+import {resizeImage} from '../util';
 
 //Redux
 import {useSelector} from 'react-redux';
@@ -12,7 +13,6 @@ const GameDetail = () => {
     //Exit detail
     const exitDetailHandler = (e) => {
         const element = e.target;
-        console.log(element.classList);
         if(element.classList.contains('shadow')){
             document.body.style.overflow = 'auto';
             history.push("/");
@@ -41,7 +41,7 @@ const GameDetail = () => {
                         </Info>
                     </Stats>
                     <Media>
-                        <img src={game.background_image} alt={game.background_image}/>
+                        <img src={resizeImage(game.background_image, 1280)} alt={game.background_image}/>
                     </Media>
                     <Description>
                         <p>{game.description_raw}</p>
@@ -49,7 +49,7 @@ const GameDetail = () => {
                     <h3>Screenshots:</h3>
                     <div className="gallery">
                         {screen.results.map(screen => (
-                            <img src={screen.image} key={screen.image} alt={screen.image}/>
+                            <img src={resizeImage(screen.image, 1280)} key={screen.image} alt={screen.image}/>
                         ))}
                     </div>
                 </Detail>
