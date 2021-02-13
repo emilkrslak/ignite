@@ -34,8 +34,6 @@ const nextYear = `${currentYear+1}-${currentMonth}-${currentDay}`
 //Popular games API
 const popular_games = `games?dates=${lastYear},${date}&ordering=-rating&page_size=10`;
 
-const popularGamesURL= () => {
+export const popularGamesURL= () => {
     return`${base_url}${popular_games}`
 }
-
-console.log(popularGamesURL());
