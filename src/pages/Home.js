@@ -4,6 +4,7 @@ import {loadGames} from '../actions/gamesAction';
 import {useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 
+
 //Styling and Animaiton
 import styled from 'styled-components';
 import {motion, AnimatePresence, AnimateSharedLayout} from 'framer-motion';
@@ -26,13 +27,29 @@ const Home = () => {
     }, [dispatch]);
 
     //Create cards with data
-    const {popular, newGames ,upcoming} = useSelector(
+    const {popular, newGames ,upcoming, searched} = useSelector(
         (state) => state.games
     );
     return(
         <GameList>
             <AnimateSharedLayout type="crossfade">
                 <AnimatePresence>{pathID && <GameDetail pathId={pathID}/>}</AnimatePresence>
+                    {searched.length ? (
+                        <div className="searched">
+                            <h2>Search results: {searched.length}</h2>
+                            <Games>
+                                {searched.map(game => (
+                                    <Game 
+                                        name={game.name} 
+                                        released={game.released} 
+                                        image={game.background_image} 
+                                        id={game.id} 
+                                        key={game.id} 
+                                    />
+                                ))}
+                            </Games>
+                        </div>
+                    ) : ''}
                     <h2>Upcoming Games</h2>
                     <Games>
                         {upcoming.map(game => (
